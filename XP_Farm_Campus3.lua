@@ -2,9 +2,9 @@ repeat task.wait() until game:IsLoaded()
 local _ = game:GetService("Players").LocalPlayer.Character or game:GetService("Players").LocalPlayer.CharacterAdded:Wait()
 
 local scripts = {
-    ["735030788"] = game:HttpGet(""),
-    ["4728136927"] = game:HttpGet(""),
-    ["1765700510"] = game:HttpGet("")
+    ["735030788"] = game:HttpGet("https://raw.githubusercontent.com/Lixterity/RH/main/TeleportMenu.lua"),
+    ["4728136927"] = game:HttpGet("https://raw.githubusercontent.com/Lixterity/RH/main/Apartment.lua"),
+    ["1765700510"] = game:HttpGet("https://raw.githubusercontent.com/Lixterity/RH/main/School.lua")
 }; coroutine.resume(coroutine.create(loadstring(scripts[tostring(game.PlaceId)])))
     
 if game.PlaceId ~= 735030788 then 
