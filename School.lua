@@ -171,7 +171,7 @@ localPlayer.ChildAdded:Connect(function(child)
             fireclickdetector(workspace["Homeworkbox_" .. homework.Name].Click.ClickDetector, 3)
             if i == 3 then
                 task.wait(4)
-                services.ReplicatedStorage.SceptorTeleport:FireServer("BeachHouse")
+                services.ReplicatedStorage.SceptorTeleport:FireServer("Apartments")
             end
         end
     end
