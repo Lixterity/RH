@@ -12,5 +12,7 @@ local function sleep()
     
     repeat task.wait(2) 
     until getupvalues(getconnections(energyEventHandler)[2].Function)[1] == 1
+    game.Players.LocalPlayer.Character:MoveTo(workspace:WaitForChild("Apartments"):GetChildren()[1]:WaitForChild("ApartmentBuilding"):WaitForChild("Stuff"):WaitForChild("bed"):WaitForChild("BedSeat").Position)
+    task.wait(2)
     services.ReplicatedStorage.SceptorTeleport:FireServer("New Royale")
 end; sleep()
