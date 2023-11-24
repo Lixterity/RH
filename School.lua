@@ -4,6 +4,11 @@ local prevConnections = {}
 
 local localPlayer = services.Players.LocalPlayer
 
+getgenv().Settings = {
+    DisableRendering = true,
+    FPSCap = 30
+} 
+
 function fireBack(remote, times, ...)
     local args = {...}
     return remote.OnClientEvent:Connect(function()
