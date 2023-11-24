@@ -1,3 +1,1 @@
-game:GetService("ReplicatedStorage").TPScepterNetwork.StartTeleport:FireServer("ApartmentsLobby", 2)
-task.wait(10)
-FireProximityPrompt(game:GetService("Workspace").TeleportPortals:GetChildren()[1].PromptAttachment.ProximityPrompt)
+services.ReplicatedStorage.SceptorTeleport:FireServer("ApartmentsLobby")
