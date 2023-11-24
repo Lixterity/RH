@@ -2,11 +2,6 @@ local services = setmetatable({},{__index = function(_,serv) return game:GetServ
 local localPlayer = services.Players.LocalPlayer
 local playerGui = localPlayer:WaitForChild("PlayerGui")
 
-getgenv().Settings = {
-    DisableRendering = true,
-    FPSCap = 30
-} 
-
 local function sleep()
     local needsScreen = playerGui:WaitForChild("NeedsBar")
     local energyEventHandler = services.ReplicatedStorage.Needs.UpdateEnergy.OnClientEvent
