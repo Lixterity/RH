@@ -1,10 +1,11 @@
 repeat task.wait() until game:IsLoaded()
-local _ = game:GetService("Players").LocalPlayer.Character or game:GetService("Players").LocalPlayer.CharacterAdded:Wait()
 
 getgenv().Settings = {
     DisableRendering = true,
     FPSCap = 30
 } 
+
+local _ = game:GetService("Players").LocalPlayer.Character or game:GetService("Players").LocalPlayer.CharacterAdded:Wait()
 
 local scripts = {
     ["735030788"] = game:HttpGet("https://raw.githubusercontent.com/Lixterity/RH/main/TeleportAppartment.lua"),
