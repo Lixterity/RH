@@ -1,5 +1,7 @@
 repeat task.wait() until game:IsLoaded()
 
+game:GetService("RunService"):Set3dRenderingEnabled(false)
+
 local _ = game:GetService("Players").LocalPlayer.Character or game:GetService("Players").LocalPlayer.CharacterAdded:Wait()
 
 local scripts = {
