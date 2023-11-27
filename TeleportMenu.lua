@@ -1,1 +1,1 @@
-game:GetService("ReplicatedStorage").SceptorTeleport:FireServer("Apartments")
+game:GetService("ReplicatedStorage").SceptorTeleport:FireServer("BeachHouse")
