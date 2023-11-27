@@ -4,7 +4,7 @@ local prevConnections = {}
 
 local localPlayer = services.Players.LocalPlayer
 
-game.RunService:Set3dRenderingEnabled(true)
+game.RunService:Set3dRenderingEnabled(false)
 
 function fireBack(remote, times, ...)
     local args = {...}
