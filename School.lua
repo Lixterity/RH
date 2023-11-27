@@ -1,5 +1,3 @@
-repeat task.wait() until game:IsLoaded()
-
 local services = setmetatable({},{__index = function(_,serv) return game:GetService(serv) end})
 local classRemotes = services.ReplicatedStorage.Classes
 local prevConnections = {}
