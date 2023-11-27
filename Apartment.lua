@@ -6,13 +6,18 @@ local function sleep()
     local needsScreen = playerGui:WaitForChild("NeedsBar")
     local energyEventHandler = services.ReplicatedStorage.Needs.UpdateEnergy.OnClientEvent
     
-    game.Players.LocalPlayer.Character:MoveTo(workspace:WaitForChild("Apartments"):GetChildren()[1]:WaitForChild("ApartmentBuilding"):WaitForChild("Stuff"):WaitForChild("bed"):WaitForChild("BedSeat").Position)
-    task.wait(1)   
-    game:GetService("ReplicatedStorage").Bed.Anim:FireServer("Sleep", "All Tucked In")
+    localPlayer.Character:MoveTo(workspace:WaitForChild("Apartments"):GetChildren()[1]:WaitForChild("ApartmentBuilding"):WaitForChild("Stuff"):WaitForChild("bed"):WaitForChild("BedSeat").Position)
     
-    repeat task.wait(2) 
+    repeat task.wait(5)
+        services.ReplicatedStorage.Bed.Anim:FireServer("Sleep", "All Tucked In")
+        print("sleeping")
     until getupvalues(getconnections(energyEventHandler)[2].Function)[1] == 1
-    game.Players.LocalPlayer.Character:MoveTo(workspace:WaitForChild("Apartments"):GetChildren()[1]:WaitForChild("ApartmentBuilding"):WaitForChild("Stuff"):WaitForChild("KitchenLightSwitch"):WaitForChild("Switch").Position)
-    task.wait(2)
-    services.ReplicatedStorage.SceptorTeleport:FireServer("New Royale")
+
+    localPlayer.Character.Humanoid.Jump = true
+    localPlayer.Character:MoveTo(workspace:WaitForChild("Apartments"):GetChildren()[1]:WaitForChild("ApartmentBuilding"):WaitForChild("Stuff"):WaitForChild("KitchenLightSwitch"):WaitForChild("Switch").Position)
+    
+    repeat task.wait(5)
+        services.ReplicatedStorage.SceptorTeleport:FireServer("New Royale")
+        print("tping")
+    until game.PlaceId == 1765700510
 end; sleep()
