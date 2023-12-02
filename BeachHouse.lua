@@ -2,6 +2,16 @@ local services = setmetatable({},{__index = function(_,serv) return game:GetServ
 local localPlayer = services.Players.LocalPlayer
 local playerGui = localPlayer:WaitForChild("PlayerGui")
 
+local NEEDS = {}
+
+for _,v in pairs(services.ReplicatedStorage.Needs:GetChildren()) do
+    if string.find(v.Name, "Update") then
+        v.OnClientEvent:Connect(function(val)
+            NEEDS[v.Name:gsub("Update", "")] = val
+        end)
+    end
+end
+
 local function sleep()
     local needsScreen = playerGui:WaitForChild("NeedsBar")
     local energyEventHandler = services.ReplicatedStorage.Needs.UpdateEnergy.OnClientEvent
@@ -17,6 +27,7 @@ local function sleep()
 
     repeat task.wait(1) until NEEDS.Energy == 1
     localPlayer.Character.Humanoid.Jump = true
+    localPlayer.Character.Humanoid.Sit = false
     task.wait(5)
     services.ReplicatedStorage.SceptorTeleport:FireServer("New Royale")
 end; sleep()
