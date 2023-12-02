@@ -15,9 +15,7 @@ local function sleep()
     ); task.wait(2)
     services.ReplicatedStorage.Bed.Anim:FireServer("sleep")
 
-    repeat task.wait(2) 
-    until getupvalues(getconnections(energyEventHandler)[2].Function)[1] == 1
-    task.wait(5)
+    repeat task.wait(1) until NEEDS.Energy == 1
     localPlayer.Character.Humanoid.Jump = true
     task.wait(5)
     services.ReplicatedStorage.SceptorTeleport:FireServer("New Royale")
