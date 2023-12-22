@@ -174,10 +174,11 @@ localPlayer.ChildAdded:Connect(function(child)
             if i == 3 then
                 task.wait(4)
                 local placeId = game.PlaceId
-                repeat
-                    services.ReplicatedStorage.SceptorTeleport:FireServer("BeachHouse")
-                    task.wait(1)
-                until game.PlaceId ~= placeId
+		repeat
+    			game:GetService("ReplicatedStorage").SceptorTeleport:FireServer("BeachHouse")
+    			task.wait(5)
+    			game:GetService("TeleportService"):Teleport(4728136927)
+		until game.PlaceId ~= placeId
             end
         end
     end
