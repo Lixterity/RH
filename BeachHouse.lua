@@ -32,8 +32,7 @@ local function sleep()
     localPlayer.Character.Humanoid.Sit = false
     
     repeat
-        services.ReplicatedStorage.SceptorTeleport:FireServer("New Royale")
         task.wait(5)
-        services.TeleportService:Teleport(1765700510)
+        services.ReplicatedStorage.SceptorTeleport:FireServer("New Royale")
     until game.PlaceId == 1765700510
 end; sleep()
