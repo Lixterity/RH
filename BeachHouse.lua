@@ -25,7 +25,7 @@ local function sleep()
         localPlayer.Character.HumanoidRootPart.CFrame - Vector3.new(0,2,3.5),
         {}
     )
-    services.ReplicatedStorage.Bed.Anim:FireServer("sleep")
+    services.ReplicatedStorage.Bed.Anim:FireServer("Sleep", "All Tucked In", true)
 
     repeat task.wait(1) until NEEDS.Energy == 1
     localPlayer.Character.Humanoid.Jump = true
