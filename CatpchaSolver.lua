@@ -1,27 +1,11 @@
-local services = setmetatable({},{__index = function(_,serv) return game:GetService(serv) end})
-local localPlayer = services.Players.LocalPlayer
+local captcha = game:GetService("Players").LocalPlayer.PlayerGui.CardCaptchaGame.CaptchaGame
 
-local playerGui = localPlayer:WaitForChild("PlayerGui")
-local captchaGui = playerGui:WaitForChild("CaptchaGui")
-
-local floatArea = playerGui.CaptchaGui.Captcha.FloatArea
-local awardGui = playerGui.CaptchaGui.Award
-
-local function solveCaptcha()
-    if captchaGui.Enabled == false then return end
-    task.wait(2)
-    repeat
-        for _,box in next, floatArea:GetChildren() do
-            local connections = getconnections(box.MouseButton1Click)
-            for _,connection in next, connections do
-                connection:Fire()
-            end
-            task.wait(2)
-        end
-        task.wait(2)
-    until awardGui.Visible
-    floatArea:ClearAllChildren()
-    captchaGui.Enabled = false
+function solve()
+    local res = game:HttpGetAsync("http://204.10.194.65:8000/solve?id=" .. string.match(captcha.Top.Card.Image, "id=(%d+)"))
+    local data = game:GetService("HttpService"):JSONDecode(res)
+    if data and data.success and data.index > 0 then
+        for _,v in pairs(getconnections(captcha.Bottom.Buttons[tostring(data.index)].MouseButton1Click)) do v:Fire() end
+    end
 end
 
-captchaGui:GetPropertyChangedSignal("Enabled"):Connect(solveCaptcha); solveCaptcha()
+captcha.Parent:GetPropertyChangedSignal("Enabled"):Connect(solve); solve()
