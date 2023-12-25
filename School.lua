@@ -170,7 +170,7 @@ localPlayer.ChildAdded:Connect(function(child)
         for i,homework in next, child:GetChildren() do
             homework.Complete:FireServer()
             task.wait(.5)
-            fireclickdetector(workspace["Homeworkbox_" .. homework.Name].Click.ClickDetector, 3)
+            fireclickdetector(workspace:WaitForChild("Homeworkbox_" .. homework.Name, 10).Click.ClickDetector, 3)
             if i == 3 then
                 task.wait(4)
                 local placeId = game.PlaceId
