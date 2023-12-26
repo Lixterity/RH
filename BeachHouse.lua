@@ -28,8 +28,7 @@ local function sleep()
     services.ReplicatedStorage.Bed.Anim:FireServer("Sleep", "All Tucked In", true)
 
     repeat task.wait(1) until NEEDS.Energy == 1
-    localPlayer.Character.Humanoid.Jump = true
-    localPlayer.Character.Humanoid.Sit = false
+    services.ReplicatedStorage.Bed.Anim:FireServer("Sleep", "All Tucked In", true)
     
     repeat
         task.wait(5)
