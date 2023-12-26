@@ -8,8 +8,7 @@ function solve()
     end
 end
 
-captcha.Parent:GetPropertyChangedSignal("Enabled"):Connect(function(v)
-    if v then solve() end
-end);
-
-solve()
+while task.wait(10) do
+    if not captcha.Enabled or string.find(captcha.Top.AttemptsRemaining.Text, "1 attempt") then continue end
+    xpcall(solve, print)
+end
