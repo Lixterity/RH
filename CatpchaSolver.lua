@@ -8,4 +8,8 @@ function solve()
     end
 end
 
-captcha.Parent:GetPropertyChangedSignal("Enabled"):Connect(solve); solve()
+captcha.Parent:GetPropertyChangedSignal("Enabled"):Connect(function(v)
+    if v then solve() end
+end);
+
+solve()
