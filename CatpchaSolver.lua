@@ -9,7 +9,7 @@ function solve()
     end
 end
 
-while task.wait(300) do
+while task.wait(180) do
     if not captcha.Parent.Enabled or string.find(captcha.Top.AttemptsRemaining.Text, "1 attempt") then task.wait(300) continue end
     xpcall(solve, print)
 end
