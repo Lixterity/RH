@@ -1,5 +1,9 @@
 repeat task.wait() until game:IsLoaded()
 
+local Players = game:GetService("Players")
+if #Players:GetPlayers() > 1 then game:Shutdown() end
+Players.PlayerAdded:Connect(function() game:Shutdown() end)
+
 game:GetService("RunService"):Set3dRenderingEnabled(false)
 
 local _ = game:GetService("Players").LocalPlayer.Character or game:GetService("Players").LocalPlayer.CharacterAdded:Wait()
