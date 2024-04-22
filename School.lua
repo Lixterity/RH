@@ -28,8 +28,13 @@ local classFuncs = {
         end
         
         local function fillCanvas()
-            for name,num in next, getCanvasData() do
-                services.ReplicatedStorage.Tools.Paint.SetColor:FireServer(workspace.ArtClassReal.Easel.Canvas:FindFirstChild(name), BrickColor.new(num))
+            for _,v in pairs(workspace.ArtClassReal:GetChildren()) do
+                if v.Name == "Easel" and v.Owner.Value == localPlayer then
+                    for name,num in next, getCanvasData() do
+                        services.ReplicatedStorage.Tools.Paint.SetColor:FireServer(v.Canvas:FindFirstChild(name), BrickColor.new(num))
+                    end
+                    break
+                end
             end
         end
 		
