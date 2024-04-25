@@ -29,7 +29,7 @@ local classFuncs = {
         
         local function fillCanvas()
             for _,v in pairs(workspace.ArtClassReal:GetChildren()) do
-                if v.Name == "Easel" and v.Owner.Value == localPlayer then
+                if v.Name == "Easel" and v.Owner.Value and v.Owner.Value.Name == localPlayer.Name then
                     for name,num in next, getCanvasData() do
                         services.ReplicatedStorage.Tools.Paint.SetColor:FireServer(v.Canvas:FindFirstChild(name), BrickColor.new(num))
                     end
@@ -41,7 +41,7 @@ local classFuncs = {
 		
         return {
             classRemotes.BookCheck.OnClientEvent:Connect(function()
-                task.wait(1)
+                task.wait(math.random(7, 15))
                 fillCanvas()
             end)
         }
